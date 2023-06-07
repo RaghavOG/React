@@ -1,0 +1,13 @@
+App.css me saari css lagti h 
+
+App.js me saari JSX lagti h
+ => JSX = HTML + JS 
+
+ index.js me sab kuch import hota h and render hokar index.html me jaata h 
+
+ Jo componenet bnana h uska and file ka name same rakhna h 
+ => import react and export bhi karna h 
+
+ Functional componenet kisi se inherit nhi hote 
+
+ Hum componenets bna skte h and usko import and export krke kahi bhi jitni marzi baar use kr skte h 
