@@ -2,7 +2,6 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import React, { useState } from 'react';
 import TextForm from './Components/Textform'
-import Card from './Components/Card';
 
  
 function App() {
@@ -25,7 +24,6 @@ function App() {
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
     <div className="container my-3">
     <TextForm heading="Enter the text to analyze below" mode={mode}/>
-    <Card mode={mode}/>
     </div>
     </> 
   );
