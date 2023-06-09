@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import Textform from "./Textform";
-// import Man from "./Man";
 
-function Navbar(props) {
+export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -30,35 +30,45 @@ function Navbar(props) {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                Link
+                {props.aboutText}
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex">
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button cla
+                        ssName="btn btn-primary" type="submit">Search</button>
+                    </form> */}
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+          >
             <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              className="form-check-input"
+              onClick={props.toggleMode}
+              type="checkbox"
+              id="flexSwitchCheckDefault"
             />
-            <button className="btn btn-outline-success" type="submit">
-              {props.searchPlaceholder}
-            </button>
-          </form>
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              {props.mode === "light" ? "Enable Dark Mode" : "Enable Light Mode"}
+            </label>
+          </div>
         </div>
       </div>
-
     </nav>
   );
 }
-export default Navbar;
 
-// Taki Prop type set kr ske ki baad me wrong na bheje hum
 Navbar.propTypes = {
-  title: PropTypes.string,
-  searchPlaceholder: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string.isRequired,
 };
-//  Taki Agar hum prop set krna bhul jaye to default prop likha aa jayega
+
 Navbar.defaultProps = {
-  title: "Set title Here",
+  title: "Set title here",
+  aboutText: "About",
 };

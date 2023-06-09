@@ -1,22 +1,33 @@
-// import logo from "./logo.svg";
-import "./App.css";
-import About from "./Components/About";
-// import Person from "./Components/Person";
-// import Man from "./Components/Man";
-// import Raghuuu from "./Components/Raghuuu";
-import Navbar from "./Components/Navbar";
-import Textform from "./Components/Textform";
+import './App.css';
+import Navbar from './Components/Navbar';
+import React, { useState } from 'react';
+import TextForm from './Components/Textform'
+import Card from './Components/Card';
 
+ 
 function App() {
+  const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
+
+  const toggleMode = ()=>{
+    if(mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = '#042743';
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+    }
+  }
   return (
     <>
-      <Navbar title="Title with Props" searchPlaceholder="Search  Props" />
-      <div className="container">
-        <Textform /> 
-        {/* <Textform heading="Enter Your Text"/>  */}
-        <About/>
-      </div>
-    </>
+    {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
+    {/* <Navbar/> */}
+    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+    <div className="container my-3">
+    <TextForm heading="Enter the text to analyze below" mode={mode}/>
+    <Card mode={mode}/>
+    </div>
+    </> 
   );
 }
 
